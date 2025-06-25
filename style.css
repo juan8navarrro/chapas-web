@@ -1,0 +1,648 @@
+
+body {
+    margin: 0;
+    font-family:  'Exo', sans-serif;
+
+    background: linear-gradient(to bottom, #1e1e2f, #2a3a4f);
+    color: #fff;
+}
+
+
+/* Eliminar scroll horizontal en Estadísticas */
+#estadisticas {
+  overflow-x: hidden;
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+  /* …otras propiedades que ya tenías… */
+}
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background: transparent;
+}
+.logo {
+    height: 60px;
+    width: 70px;
+    border-radius: 12px;
+    background: transparent;
+
+}
+h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 500;
+    color: #ffffff;
+}
+.filtros {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+}
+.filtros select,
+.filtros input[type="text"],
+.filtros button {
+    padding: 10px 14px;
+    border-radius: 12px;
+    background: #1f2937;
+    color: white;
+    border: 1px solid #374151;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+.filtros button:hover {
+    background-color: #3b82f6;
+    color: #fff;
+}
+.tabla-chapas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    padding: 20px;
+}
+
+.page-btn.active {
+  background: #007BFF;
+  color: #fff;
+}
+.chapa {
+    background: #2c3a52;
+    border-radius: 16px;
+    padding: 12px;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 0.6s forwards;
+}
+.chapa img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+.chapa img:hover {
+    transform: scale(1.05);
+}
+.chapa .info {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #d1d5db;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.paginacion {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 30px 0;
+    gap: 6px;
+}
+.paginacion button {
+    padding: 10px 14px;
+    border-radius: 12px;
+    background: #1f2937;
+    color: white;
+    border: 1px solid #374151;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.paginacion button:hover:not(:disabled) {
+    background-color: #3b82f6;
+    color: white;
+}
+.paginacion button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Fuerza siempre 5 columnas y centra las tarjetas KPI */
+.kpis {
+  
+  display: grid;
+  /* auto-fit hace que las tarjetas colapsen al espacio que haya */
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+
+
+
+.kpi-tarjeta {
+    background: #2c3a52;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+    text-align: center;
+    animation: fadeIn 0.6s forwards;
+}
+.kpi-tarjeta h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #f3f4f6;
+}
+.kpi-tarjeta p {
+    font-size: 40px;
+    font-weight: bold;
+    color: #fbfbfb;
+}
+canvas {
+    background: transparent !important;
+}
+
+.page-btn.active {
+  background: #007BFF;
+  color: #fff;
+}
+/* Página activa */
+.paginacion button.activo {
+  background: #3b82f6;
+  color: white;
+}
+
+* Hace “accionable” el logo y el título */
+#logo,
+#titulo {
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+#logo:hover {
+  transform: scale(1.1);
+}
+#titulo:hover {
+  color: #3b82f6;
+}
+
+/* Hover animado y cursor pointer en logo y título en todas las páginas */
+header .logo,
+header h1 {
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+header .logo:hover {
+  transform: scale(1.1);
+}
+
+header h1:hover {
+  color: #3b82f6;
+}
+
+
+
+.flag {
+  width: 24px;
+  height: auto;
+  margin-right: 0.5rem;
+}
+
+.pais {
+  flex: 1;
+}
+
+.count {
+  font-weight: bold;
+}
+
+
+/* =============== */
+/* Top 10 Países   */
+/* =============== */
+
+
+#card-top-paises h3 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+}
+
+/* convierte la lista en grid de dos columnas */
+
+
+
+
+/* bandera más grande y con margen */
+.flag {
+  width: 28px;
+  height: auto;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+}
+
+/* nombre del país destacado */
+.pais {
+  flex: 1;
+  color: #f9fafb;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* contador alineado a la derecha */
+.count {
+  color: #f9fafb;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-left: 1rem;
+}
+
+/* ——— Estilo “KPI” para Top 10 países ——— */
+#top-paises-container {
+  /* color de fondo distinto al de las KPI */
+   /* verde oscuro */
+  color: #fff;
+  border-radius: 8px;
+  padding: 0rem;
+  min-width: 30px;
+  margin: 0 auto 0rem;   /* centrado y espacio inferior */
+}
+
+
+#top-regiones-container {
+  /* color de fondo distinto al de las KPI */
+   /* verde oscuro */
+  color: #fff;
+  border-radius: 8px;
+  padding: 1.25rem;
+  min-width: 30px;
+  margin: 0 auto 2rem;   /* centrado y espacio inferior */
+}
+
+
+#top-paises-container h3 {
+  margin-bottom: 2rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+
+#top-regiones-container h4 {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Cada país como mini-tarjeta */
+#top-paises-list li {
+  -background: #1c86ff;   /* verde un poco más claro */
+  border-radius: 6px;
+  padding: 0.75rem ;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+  /* —————— Forzar país en una sola línea —————— */
+
+  white-space: nowrap;       /* evita salto de línea */
+  overflow: hidden;          /* oculta texto que desborda */
+  text-overflow: ellipsis;   /* opcional, añade “...” si no cabe */
+}
+
+
+
+/* Ajustes de texto y bandera */
+#top-paises-list li .flag {
+  width: 24px;
+  margin: 0;
+}
+
+#top-paises-list li .pais {
+  flex: 1;
+  font-weight: 500;
+}
+
+#top-paises-list li .count {
+  font-weight: 700;
+}
+/* Top 10 en fila horizontal */
+
+
+#top-paises-list li {
+  flex: 0 0 180px;  /* fija el ancho a 180px */
+  width: 180px;     /* garantiza que todos midan igual */
+   box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+    text-align: center;
+    animation: fadeIn 0.6s forwards;
+}
+
+/* ——— Estilo “KPI” para Top 10 regiones ——— */
+#top-regiones-container {
+  
+  color: #fff;
+  border-radius: 8px;
+  padding: 1.25rem;
+  min-width: 300px;
+  margin: 0 auto 2rem;
+}
+
+#top-regiones-container h3 {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Lista horizontal como Top países */
+#top-regiones-list {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0;
+  list-style: none;
+}
+
+#top-regiones-list li {
+ 
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+  align-items: center;
+  gap: 0.75rem;
+  flex: 0 0 auto;
+  width: 180px;
+}
+
+#top-regiones-list li .pais {
+  flex: 1;
+  font-weight: 500;
+}
+
+#top-regiones-list li .count {
+  font-weight: 700;
+}
+
+
+#primeras-chapas-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem auto 3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+
+/* — Ajustes responsivos — */
+@media (max-width: 768px) {
+  /* Header: apila logo, título y menú */
+  .menu {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  nav {
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+  }
+  nav button {
+    width: 48%;
+    margin: 5px 1%;
+  }
+
+  /* Filtros a una columna */
+  .filtros {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .filtros select,
+  .filtros input,
+  .filtros button {
+    width: 100%;
+  }
+}
+  /* Chapas: dos por fila */
+  @media (max-width: 768px) {
+  /* Header y filtros quedan igual… */
+
+  /* Galería: grid de 2 columnas manteniendo el tamaño de tarjeta */
+  #galeria-contenido {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .chapa {
+    /* ancho fijo igual al de escritorio (o ajusta a tu valor) */
+    width: 140px !important;
+    aspect-ratio: 1 / 1.2;  /* mantiene proporción */
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .chapa-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 4px;
+  }
+
+  /* Texto más pequeño para que quepa mejor */
+  .chapa div {
+    font-size: 0.7rem;
+    margin-bottom: 2px;
+    line-height: 1.1;
+  }
+
+  /* Ocultar la línea de Ciudad – País para ahorrar espacio */
+  .chapa div:nth-of-type(3) {
+    display: none;
+  }
+}
+/* — Galería móvil: 2 columnas, mismo tamaño de caja, texto reducido — */
+@media (max-width: 480px) {
+  #galeria-contenido {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    justify-content: center;
+  }
+
+    /* — Centrar filtros y galería en móvil ≤480px — */
+  .filtros {
+    display: flex;              /* asegúrate de que es flex */
+    justify-content: center;    /* centra los botones/input */
+    flex-wrap: wrap;            /* permite que bajen si no caben todos en una línea */
+    gap: 8px;                   /* espacio entre controles */
+  }
+
+  #galeria-contenido {
+    display: grid !important;   
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px !important;
+    justify-content: center;    /* centra las columnas de chapas */
+  }
+
+ 
+    /* — Aumentar altura de las tarjetas en móvil ≤480px — */
+  #galeria-contenido .chapa {
+    /* Haz la caja más “alta” cambiando la proporción */
+    aspect-ratio: 1 / 1.5 !important;
+    /* Garantiza una altura mínima para que quepa el texto */
+    min-height: 200px !important;
+    /* Quita cualquier limitación previa de height */
+    height: auto !important;
+  }
+
+  .chapa-img {
+    width: 80%;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 4px;
+  }
+  .chapa div {
+    font-size: 0.7rem;            /* texto más pequeño */
+    margin: 0;                    /* sin márgenes extra */
+    line-height: 1.1;
+    text-align: center;
+  }
+ 
+
+  
+
+  /* — Nombre más pequeño sólo en móvil — */
+  #galeria-contenido .chapa div:nth-of-type(1) strong {
+    font-size: 0.75rem;
+  }
+
+ 
+
+
+
+
+
+
+
+}
+
+
+
+
+
+/* Forzar contenedores internos a ocupar ancho completo */
+.kpis,
+#top-paises-container,
+#top-regiones-container,
+#primeras-chapas-container,
+.charts {
+  width: 100%;
+  max-width: 1200px; /* opcional para limitar en pantallas muy anchas */
+  box-sizing: border-box;
+}
+
+/* Asegurar que los canvas sean responsivos */
+canvas {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+/* — Ajuste de altura para las tarjetas KPI — */
+.kpi-tarjeta {
+  padding: 10px;           /* menos espacio interior */
+  min-height: 0;           /* elimina altura mínima si la hubiese */
+}
+.kpi-tarjeta h3 {
+  font-size: 1rem;         /* reduce tamaño de título */
+  margin-bottom: 0.5rem;
+}
+.kpi-tarjeta p {
+  font-size: 1.1rem;       /* reduce tamaño del número */
+  margin: 0;
+}
+
+/* — Top 10 países: 2 filas de 5 — */
+#top-paises-list {
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr) !important;
+  grid-auto-rows: auto;
+  gap: 0,3rem;
+  padding: 0;
+  list-style: none;
+}
+
+
+/* — Primera y Última chapa más compactas — */
+
+#primeras-chapas-container .chapa-title {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+#primeras-chapas-container .chapa-img {
+  max-height: 120px;
+  object-fit: contain;
+}
+
+
+/* —— Subir las tarjetas de Primera/Última chapa —— */
+#primeras-chapas-container {
+  /* Reduce el margen superior */
+  margin: 0rem auto 1rem; /* top 1rem, left/right auto, bottom 2rem */
+}
+
+
+#primeras-chapas-container {
+  margin-top: 0.0rem;     /* Espacio superior reducido */
+}
+
+/* ——————— Responsive Top 10 Países en móvil ——————— */
+@media (max-width: 480px) {
+  /* Pasa de 2 filas de 5 a 5 filas de 2 */
+  #top-paises-list {
+    display: grid !important;
+    grid-template-columns: repeat(1, 1fr) !important;
+    grid-auto-rows: auto;
+    gap: 0.5rem !important;
+    justify-content: center;
+  }
+}
+
+
+
+
+
+/* ——————— Anchos uniformes para filtros en Galería ——————— */
+.filtros select,
+.filtros input#buscador-marca,
+.filtros button#btn-limpiar {
+  width: 180px;            /* mismo ancho para todos */
+  box-sizing: border-box;  /* incluir padding en el ancho */
+}
+
+
+
+
+/* — Centrar Top 10 países en móvil (columna única) — */
+@media (max-width: 480px) {
+#top-paises-list {
+  display: grid !important;
+  grid-template-columns: 1fr !important;  /* una columna */
+  justify-content: center;                /* centrar la columna */
+  margin: 0 auto;                         /* asegurar centrado */
+}
+}
+/* — Tarjetas de país con ancho fijo — */
+#top-paises-list li {
+  width: 250px;           /* fija el mismo ancho para todos */
+  max-width: 250px;
+  box-sizing: border-box;
+  white-space: nowrap;    /* evita saltos */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
