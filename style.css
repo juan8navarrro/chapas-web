@@ -470,15 +470,18 @@ header h1:hover {
 @media (max-width: 480px) {
   #galeria-contenido {
     display: grid;
+    align-items: center;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     justify-content: center;
+    margin: 0 auto; /* centrado */
   }
 
     /* — Centrar filtros y galería en móvil ≤480px — */
   .filtros {
     display: flex;              /* asegúrate de que es flex */
-    justify-content: center;    /* centra los botones/input */
+    justify-content: center; 
+    align-items: center;   /* centra los botones/input */
     flex-wrap: wrap;            /* permite que bajen si no caben todos en una línea */
     gap: 8px;                   /* espacio entre controles */
   }
@@ -487,7 +490,9 @@ header h1:hover {
     display: grid !important;   
     grid-template-columns: repeat(2, 1fr);
     gap: 8px !important;
-    justify-content: center;    /* centra las columnas de chapas */
+    justify-items: center;  
+    margin: 0 auto; 
+    align-items: center; /* centra las columnas de chapas */
   }
 
  
@@ -505,7 +510,7 @@ header h1:hover {
     width: 80%;
     height: auto;
     object-fit: contain;
-    margin-bottom: 4px;
+    margin-bottom: 5px;
   }
   .chapa div {
     font-size: 0.7rem;            /* texto más pequeño */
@@ -571,10 +576,13 @@ canvas {
 #top-paises-list {
   display: grid !important;
   grid-template-columns: repeat(5, 1fr) !important;
-  grid-auto-rows: auto;
-  gap: 0,3rem;
+  /*grid-auto-rows: auto;*/
+  gap: 0.5rem;
   padding: 0;
   list-style: none;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 4rem; /* espacio inferior */
 }
 
 
@@ -601,17 +609,6 @@ canvas {
   margin-top: 0.0rem;     /* Espacio superior reducido */
 }
 
-/* ——————— Responsive Top 10 Países en móvil ——————— */
-@media (max-width: 480px) {
-  /* Pasa de 2 filas de 5 a 5 filas de 2 */
-  #top-paises-list {
-    display: grid !important;
-    grid-template-columns: repeat(1, 1fr) !important;
-    grid-auto-rows: auto;
-    gap: 0.5rem !important;
-    justify-content: center;
-  }
-}
 
 
 
@@ -630,16 +627,32 @@ canvas {
 
 /* — Centrar Top 10 países en móvil (columna única) — */
 @media (max-width: 480px) {
-#top-paises-list {
-  display: grid !important;
-  grid-template-columns: 1fr !important;  /* una columna */
-  justify-content: center;                /* centrar la columna */
-  margin: 0 auto;                         /* asegurar centrado */
+  #top-paises-list {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem !important;
+    margin: 0 auto;
+  }
+  #top-paises-list li {
+  flex: 0 0 40px;  /* fija el ancho a 180px */
+  width: 40px;     /* garantiza que todos midan igual */
+   box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+    text-align: center;
+    animation: fadeIn 0.6s forwards;
 }
+  }
+  .tabla-chapas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    padding: 20px;
 }
 /* — Tarjetas de país con ancho fijo — */
 #top-paises-list li {
-  width: 250px;           /* fija el mismo ancho para todos */
+  width: 250px; 
+         /* fija el mismo ancho para todos */
   max-width: 250px;
   box-sizing: border-box;
   white-space: nowrap;    /* evita saltos */
